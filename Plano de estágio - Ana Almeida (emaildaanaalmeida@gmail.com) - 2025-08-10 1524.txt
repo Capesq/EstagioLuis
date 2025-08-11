@@ -1,0 +1,502 @@
+﻿Olá Luis Paulo,
+
+Tens aqui um plano de estágio com o passo a passo do que tens que fazer e entregar.
+O google, youtube e chatgpt serão os teus melhores amigos. Usa-os sempre que precisares de ajuda para ultrapassar os obstáculos. 
+
+É importante que percebas que nem sempre irás conseguir fazer o que estava planeado para o dia. É normal, também me acontece (quase sempre). Mas é importante que não saltes passos. Podes eventualmente fazer alguns por outra ordem. Por exemplo, a meio do estágio tens um curso de Python. Se vires que ha necessidade de o antecipar porque precisas de fazer alguma coisa em Python que nao consegues, antecipa-o. Mas tudo o resto,  à partida, não irás precisar de alterar.
+
+Lê tudo até ao fim antes de de começares. Nao te assustes por não perceberes, no fim fará sentido. Dá tempo a ti próprio para aprenderes,  ninguémnasce ensinado.
+
+Esta é a tua rotina diária (que podes ir adaptando em termos de tempo mas que não podes saltar:
+
+[ ] Ler material teórico (09h–10h30)
+
+[ ] Fazer exercícios práticos (10h45–13h)
+
+[ ] Trabalhar no projeto/tarefa (14h–16h30)
+
+[ ] Commitar no GitHub (até 17h)
+
+[ ] Atualizar README com progresso
+
+[ ] Registrar 3 aprendizagens do dia
+
+[ ] Anotar impedimentos ou dúvidas
+
+Um beijinho.
+Ana
+
+----------------------------------------------------------------------------
+
+
+Plano de estágio remoto — Data Analytics (12 semanas / 8h dia, 5 dias/semana)
+
+O foco é aprender fazendo: ferramentas gratuitas, datasets públicos de turismo em Portugal, exercícios práticos e entregáveis claros todos os dias/semana/mês.
+
+Aqui estão 5 fontes/dados e ferramentas que usaremos no plano (links citados para referência):
+
+Turismo de Portugal — Portal de Dados Abertos (conjuntos sobre alojamento, dormidas, indicadores por município). 
+
+TravelBI / Turismo de Portugal — Indicadores por município (dormidas, hóspedes, etc.) — bom para séries temporais por concelho. 
+
+INE (Instituto Nacional de Estatística) — Estatísticas do turismo (hóspedes, dormidas, proveitos, etc.) — fonte oficial nacional. 
+
+Google Colab — ambiente gratuito para notebooks Python (ideal para iniciantes, sem instalação). 
+
+Looker Studio (Google Data Studio) — ferramenta gratuita para dashboards interativos; alternativa: Power BI Desktop (gratuito para desktop) e Tableau Public (gratuito mas público). 
+
+
+
+---
+
+Estrutura do estágio (visão geral)
+
+Duração: 12 semanas (60 dias úteis).
+
+Horas: 8h / dia (divididas: 3h aprendizagem / 4h prática / 1h revisão/documentação).
+
+Ferramentas principais: Google Colab (Python, pandas, matplotlib), Git + GitHub (controle de versão), DuckDB/SQLite (SQL local), Looker Studio / Power BI Desktop (visualização), OpenRefine (limpeza alternativa). Todas têm versão gratuita. 
+
+Dataset prático principal (caso): Dormidas e hóspedes por mês e município (Turismo de Portugal / TravelBI / INE). Baixar CSV ou usar API do portal de dados. 
+
+
+
+---
+
+Caso prático (resumo)
+
+Objetivo: analisar a evolução das dormidas (overnight stays) em Portugal por município e por mês; identificar padrões sazonais, top destinos, e construir um dashboard interativo + relatório que possa servir como portfólio.
+
+Perguntas de negócio (exemplos) para tentares responder no fim do estágio:
+
+Quais os 10 municípios com mais dormidas nos últimos 3 anos? Quais os que viram um maior aumento de dormidas?
+
+Existe sazonalidade clara (picos de verão) por região?
+
+Como prever dormidas para os próximos 12 meses (baseline)?
+
+Que municípios têm maior recuperação pós-pandemia?
+
+
+Dados a usar (onde e como):
+
+Descarregar CSVs de dormidas/hóspedes por município e mês no portal Turismo de Portugal — Dados Abertos ou no TravelBI (exportar para CSV). 
+
+Complementar com séries do INE (para validação e indicadores económicos). 
+
+
+
+---
+
+Organização de ficheiros (sugestão)
+
+/estagio_turismo_pt/
+  data/raw/ # CSV originais (ex: dormidas_concelho_mes.csv)
+  data/clean/ # dados limpos
+  notebooks/ # Colab / Jupyter notebooks (EDA, modeling)
+  sql/ # queries .sql ou scripts DuckDB
+  reports/ # PDFs e slides semanais
+  dashboards/ # links ou ficheiros PBIX / .twbx / LookerStudio
+  README.md
+
+
+---
+
+Entregáveis padrão
+
+Fim de cada dia: notebook_dayXX.ipynb (ou Colab link) + 1-parágrafo de resumo (README ou email) e ficheiro/artefacto gerado (gráfico, CSV).
+
+Fim de cada semana: relatório semanal (1–3 páginas) + push no GitHub com todos os notebooks e dados limpos; 5 slides com principais descobertas.
+
+Fim de cada mês (4/8/12 semanas): relatório de 6–10 páginas, dashboard interativo mínimo viável (Link Looker Studio / PBIX / Tableau Public), apresentação (10–12 slides) e repositório GitHub com README.
+
+
+
+---
+
+Plano detalhado (dia a dia — 12 semanas)
+
+Para cada dia há objetivo, tarefas e entregável. Segue exatamente a ordem e não avances sem terminar e compreender o passo anterior
+
+Semana 1 — Fundamentos & ambiente (Onboarding)
+
+Dia 1 (Seg) — Introdução e setup (8h)
+
+Manhã: apresentação do estágio, objetivos, expectativas; criar conta Google; instalar Git; criar repositório GitHub.
+
+Tarde: criar pasta do projeto, clonar repositório, explicar fluxo de trabalho (issues, commits).
+
+Entregável dia: repositório GitHub inicial com README + issue de primeira tarefa.
+
+
+Dia 2 (Ter) — Ferramentas básicas (8h)
+
+Manhã: introdução a Python (variáveis, listas, pandas básico) com Colab.
+
+Tarde: exercícios simples (ler CSV, head/tail, estatísticas descritivas).
+
+Entregável: Colab notebook 01_python_basics.ipynb com exemplos.
+
+
+Dia 3 (Qua) — Git + GitHub workflow (8h)
+
+Manhã: commits, branches, pull requests (prática).
+
+Tarde: criar branch feature/data-download e documentar fontes de dados (links).
+
+Entregável: PR aberta com README_DATA.md listando datasets e links.
+
+
+Dia 4 (Qui) — Introdução a SQL (8h)
+
+Manhã: conceitos SQL (SELECT, WHERE, GROUP BY).
+
+Tarde: praticar com SQLite / DuckDB (pequeno CSV de exemplo).
+
+Entregável: ficheiro sql/queries_basics.sql + notebook exemplo.
+
+
+Dia 5 (Sex) — Download dos dados & inventário (8h)
+
+Manhã: localizar e descarregar datasets do Turismo de Portugal / INE (dormidas por concelho/mês). 
+
+Tarde: guardar .csv em data/raw/ e documentar colunas em data/README.md.
+
+Entregável: CSVs em data/raw/ + data/README.md.
+
+
+
+---
+
+Semana 2 — Limpeza de dados e EDA inicial
+
+Dia 6 (Seg) — Inspeção dos dados (8h)
+
+Verificar tipos, valores ausentes, formatos de data; criar copia limpa inicial.
+
+Entregável: notebooks/02_data_inspection.ipynb + sample CSV data/clean/sample_clean.csv.
+
+
+Dia 7 (Ter) — Limpeza (parte 1) (8h)
+
+Normalização de colunas, parsing de datas, tratar missing values.
+
+Entregável: data/clean/dormidas_clean_v1.csv.
+
+
+Dia 8 (Qua) — Limpeza (parte 2) & transformação (8h)
+
+Agregações mensais, criação de colunas (ano, mês, região), merge com mapa de concelhos se necessário.
+
+Entregável: notebooks/03_cleaning.ipynb.
+
+
+Dia 9 (Qui) — EDA univariado e plots (8h)
+
+Histogramas, séries temporais globais (total dormidas por mês), boxplots por região.
+
+Entregável: pasta reports/figs/ com 6 gráficos png + notebook.
+
+
+Dia 10 (Sex) — EDA bivariado e insights iniciais (8h)
+
+Correlações, comparação ano a ano, top 10 municípios.
+
+Entregável semanal: reports/semana2_resumo.pdf (2 páginas) + PR no GitHub.
+
+
+
+---
+
+Semana 3 — Visualização e storytelling
+
+Dia 11 (Seg) — Princípios de visualização (8h)
+
+Boas práticas para gráficos (títulos, legendas, cores), criar templates.
+
+Entregável: notebooks/04_viz_principles.ipynb.
+
+
+Dia 12 (Ter) — Visualizações interativas (8h)
+
+Exportar gráficos interativos (Plotly) e aprender a embutir no Looker Studio / Tableau Public.
+
+Entregável: Plotly HTML + esboço de dashboard (PDF).
+
+
+Dia 13 (Qua) — Construir dashboard preliminar (8h)
+
+Usar Looker Studio: criar relatório com 3 páginas (tendência nacional, top municípios, sazonalidade). 
+
+Entregável: link do relatório Looker Studio (rascunho) + notebook com queries.
+
+
+Dia 14 (Qui) — Feedback e refinamento (8h)
+
+Sessão com o mentor (1h): apresentar rascunho; aplicar feedback.
+
+Entregável: versão 2 do dashboard + lista de melhorias.
+
+
+Dia 15 (Sex) — Storytelling & slides (8h)
+
+Preparar 5 slides no Canva “principais descobertas” da semana.
+
+Entregável semanal: reports/semana3_slides.pptx + PR.
+
+
+
+---
+
+Semana 4 — Python avançado e Séries temporais
+
+Dia 16 (Seg) — Formação Python avançado (8h)
+
+Podes começar por pt.python-3.com para um curso intensivo. 
+Se quiseres o certificado podes comecar por fazer fazer o da Coursera (descrito abaixo) e depois o da pt.python-3.com
+
+Outras opções caso precises de um reforço:
+
+Plataformas gratuitas:
+
+Coursera — há cursos como “Crash Course on Python” ou “Programming for Everybody (Python)” que podem ser auditados gratuitamente; suficientes para uma imersão rápida de 3 dias. 
+
+LearnPython.org — tutorial interativo online com exercícios práticos sobre variáveis, listas, funções, dicionários e muito mais; sem necessidade de registro. 
+
+freeCodeCamp — plataforma non-profit com tutoriais interativos e projetos hands-on; ideal para aprender e praticar Python no seu ritmo. 
+
+
+Entregável: 3 linhas sobre o conteúdo do curso leccionado este dia
+
+Dia 17 (Ter) — Curso the Python avançado (8h)
+
+Aprofundar-se no LearnPython.org, completando unidades como listas, funções, loops e dicionários.
+
+Entregável: 3 linhas sobre o conteúdo do curso leccionado este dia
+
+Dia 18 (Qua) — Curso the Python avançado (8h)
+
+Iniciar um curso gratuito no Coursera (auditando um módulo rápido como “Crash Course on Python”) para consolidar o que aprendeste
+
+Entregável: 3 linhas sobre o conteúdo do curso leccionado este dia
+
+
+Dia 19 (Qui) — Introdução a séries temporais (8h)
+
+Conceitos: tendência, sazonalidade, ruído; preparação de séries.
+
+Entregável: notebook 05_ts_intro.ipynb.
+
+
+Dia 20 (Sex) — Integração com dashboard (8h)
+
+Incluir previsões no dashboard e criar filtros por município/ano.
+
+Entregável semanal: dashboard com aba de previsão + resumo mensal (1 página).
+
+
+Fim do MÊS 1 (semanas 1–4) — Entregáveis do mês
+
+Repositório atualizado; dataset limpo; EDA; dashboard Mínimo Viável (MVP); slides de apresentação. (Entregável formal: reports/month1_report.pdf)
+
+
+
+---
+
+Semana 5 — SQL avançado, otimização e APIs
+
+Dia 21–25 (Seg–Sex)
+
+Aprimorar consultas com DuckDB, utilizar joins entre ficheiros (capacidade alojamento × dormidas), criar views/materialized tables.
+
+Entregáveis diários: queries .sql e notebooks com resultados; PR no GitHub.
+
+
+
+---
+
+Semana 6 — Enriquecimento de dados (geo + demografia)
+
+Dia 26–30
+
+Obter shapefiles de concelhos (Câmaras, Instituto Geográfico), juntar dados demográficos (população) e calcular dormidas per capita.
+
+Entregáveis: data/clean/dormidas_percapita.csv + mapas choropleth no dashboard.
+
+
+
+---
+
+Semana 7 — Segmentação e clustering (municipalidades)
+
+Dia 31–35
+
+Cluster municípios por perfil (sazonalidade, média anual, crescimento) usando K-means / hierarchical clustering.
+
+Entregáveis: clusters.csv, notebook com interpretação, 1 slide por cluster com recomendações.
+
+
+
+---
+
+Semana 8 — Modelos explicáveis e análises avançadas
+
+Dia 36–40
+
+Regressões para entender drivers (capacidade de alojamento, proximidade aeroportos, eventos), análise de features e importância.
+
+Entregáveis: relatório com 3 modelos comparados e conclusões.
+
+
+Fim do MÊS 2 (semanas 5–8) — Entregáveis do mês
+
+Dashboard melhorado com mapas e clusters; relatório intermédio 8–10 páginas; código + notebooks.
+
+
+
+---
+
+Semana 9 — Preparação do produto final (UX e polimento)
+
+Dia 41–45
+
+Melhorar usabilidade do dashboard, documentar fontes, criar página “Methodology” no relatório; preparar esboço da apresentação final.
+
+Entregáveis: checklist de qualidade + protótipo final do dashboard.
+
+
+
+---
+
+Semana 10 — Validação e testes finais
+
+Dia 46–50
+
+Testes de integridade (re-runs), revisão de código, limpar notebooks (comentários, células executáveis), preparar dataset reduzido para portfólio.
+
+Entregáveis: repositório limpo e testado, ENV.md com instruções para reproduzir.
+
+
+
+---
+
+Semana 11 — Relatório final e apresentação
+
+Dia 51–55
+
+Escrever relatório final (10–15 páginas) com metodologia, resultados, limitações e recomendações; criar slides finais (10–12 slides).
+
+Entregáveis: reports/final_report.pdf, presentation_final.pptx.
+
+
+
+---
+
+Semana 12 — Entrega, retro e portfólio
+
+Dia 56–60
+
+Entregar apresentação ao mentor/equipa (simular pitch de 15–20min), incorporar feedback final, publicar dashboard publicamente (Tableau Public / Looker Studio) e preparar “case” para o LinkedIn/GitHub.
+
+Entregáveis finais: link do dashboard público, GitHub com README final, relatório e slides.
+
+
+Fim do MÊS 3 / término do estágio — Entregáveis finais
+
+Relatório final, dashboard público, GitHub com código e dados de exemplo, apresentação gravada (opcional). Estes servem como portfólio profissional.
+
+
+
+---
+
+Lista de entregáveis (resumo)
+
+Diário: Notebook do dia + 1-parágrafo sumário + ficheiro gerado (gráfico/CSV).
+
+Semanal: Relatório semanal (PDF) + 5 slides + push no GitHub com todos os artefactos.
+
+Mensal (3x): Relatório detalhado do que aprendeste, das dificuldades e do que tens que desenvolver mais, dashboard funcional, apresentação, repositório público.
+
+Final: Relatório final, dashboard público, repositório GitHub limpo, apresentação.
+
+
+
+---
+
+Onde encontrar os dados (passos práticos)
+
+1. Turismo de Portugal — Dados Abertos: procurar por “dormidas”, “alojamento”, “indicadores por município” e exportar CSV. 
+
+
+2. TravelBI (Turismo de Portugal): páginas com indicadores por município permitem exportar tabelas (use para “Dormidas por concelho”). 
+
+
+3. INE: descarregar séries históricas de turismo para validar e complementar. 
+
+
+
+
+---
+
+Ferramentas (gratuitas / trial) e por que usar
+
+Google Colab — notebooks Python sem instalação; ideal para compartilhar. 
+
+Looker Studio (Data Studio) — construir dashboards gratuitos e partilháveis. 
+
+Power BI Desktop — alternativa gratuita no desktop; ótimo para empresas. 
+
+Tableau Public — criar visualizações públicas como portfólio. 
+
+DuckDB / SQLite — consultas SQL em CSV (leve e rápido).
+
+Git + GitHub — controle de versão (gratuito para repositórios públicos/privados).
+
+OpenRefine — limpeza de dados tabulares, grátis.
+
+
+
+---
+
+Dicas práticas para quem começa:
+
+Faça commits pequenos e frequentes.
+
+Documenta cada transformação de dados (README + notebook).
+
+Prioriza reproducibilidade: scripts/requirements/README.
+
+Use o padrão “learning by doing”: execute, explique em poucas frases, corrija.
+
+
+---
+
+
+
+A) Plano de Estágio Remoto em Data Analytics — 12 semanas (60 dias úteis)
+
+Diferença da versão de 8 semanas: mais tempo para praticar, consolidar e criar dois mini-projetos intermediários antes do projeto final.
+
+---
+
+Estrutura
+
+Semanas 1–2: Fundamentos (Excel, Git, SQL básico).
+
+Semanas 3–4: Python & pandas (limpeza, manipulação, EDA).
+
+Semanas 5–6: Visualização (Python + Tableau/Power BI) + storytelling.
+
+Semanas 7–8: Estatística aplicada + automação (ETL, APIs).
+
+Semana 9: Mini-projeto #1 (dashboards).
+
+Semana 10: Mini-projeto #2 (ETL + análise).
+
+Semanas 11–12: Projeto final + apresentação.
+
+---
+   
+
+
+

@@ -1,9 +1,0 @@
-Aqui para explicar alguns conceitos do Github
-
-Para começar, existe o main, que é o princiapl, onde o "trabalho" final estará.
-Quando se querer alterar ou acrescentar algo novo, o melhor é criar um branch. O branch é uma cópia do main onde se pode fazer alterações de forma livre.
-Quando concluído, o branch pode ser merged para o main e as alterações feitas nesse branch serão aplicadas no main
-
-Issues, pelo que percebi, é uma forma de comentar, para que possiveis problemas, duvidas ou questões sobre o projeto possam ser expostas e comentadas
-
-Commit é essencialmente a confirmação das mudanças

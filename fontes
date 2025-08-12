@@ -1,7 +1,14 @@
-#fonte do CSV
+fonte do CSV
+
+Dormidas (N.º) nos estabelecimentos de alojamento turístico por Localização geográfica (NUTS - 2024) e Segmento (alojamento turístico); Mensal
+NEcessário alterar condições de seleção para poder ver distribuição por concelho
 https://www.ine.pt/xportal/xmain?xpid=INE&xpgid=ine_indicadores&indOcorrCod=0012088&contexto=bd&selTab=tab2
 
 cenas do TravelBI
+
+Total de dormidas em Portugal, com informação de internacionais. Desde 2023. Por regiões de NUTS 2
 https://travelbi.turismodeportugal.pt/alojamento/dormidas/?returnUrl=https%3A%2F%2Ftravelbi.turismodeportugal.pt%2Fpesquisa%3Ftype%3DIndicadores
+Total de Dormidas por concelho. Desde 2019 (Fonte é o INE mas por concelho só encontro desde 2022)
 https://travelbi.turismodeportugal.pt/alojamento/indicadores-municipio/
+Total de dormidas por NUTS 3. Desde 2016 até 2023
 https://travelbi.turismodeportugal.pt/alojamento/dormidas-nuts-iii/?returnUrl=https%3A%2F%2Ftravelbi.turismodeportugal.pt%2Fpesquisa%3Ftype%3DIndicadores
